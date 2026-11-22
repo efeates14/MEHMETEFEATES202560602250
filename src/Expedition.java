@@ -13,8 +13,6 @@ public class Expedition {
     private String status;
 
 
-
-
     public Expedition(){
         map new char[0][0];
         rows = 0;

@@ -14,7 +14,7 @@ public class Expedition {
 
 
     public Expedition(){
-        map new char[0][0];
+        map =new char[0][0];
         rows = 0;
         cols = 0;
         row = -1;
@@ -97,7 +97,6 @@ public boolean startNewGame(int numRows, int numCols) {
     }
 
     public int getScore() {
-        // Before a game starts, relics and energy are both 0, so the score is 0.
         return 100 * collectedRelics + 5 * energy;
     }
 

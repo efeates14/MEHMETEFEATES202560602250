@@ -12,9 +12,8 @@ public class Expedition {
     private int moves;
     private String status;
 
-
-    public Expedition(){
-        map =new char[0][0];
+    public Expedition() {
+        map = new char[0][0];
         rows = 0;
         cols = 0;
         row = -1;
@@ -25,34 +24,33 @@ public class Expedition {
         requiredRelics = 0;
         moves = 0;
         status = "NOT_STARTED";
-
     }
-public boolean startNewGame(int numRows, int numCols) {
-    if (numRows < 5 || numRows > 12 || numCols < 5 || numCols > 12) {
-        return false;
 
-    }
-    map = new char[numRows][numCols];
-    for(int r = 0 ;r< numRows ; r++){
-        for (int c = 0 ;c <numCols;c++){
-            map[r][c]='.';
-
+    public boolean startNewGame(int numRows, int numCols) {
+        if (numRows < 5 || numRows > 12 || numCols < 5 || numCols > 12) {
+            return false;
         }
-    }
-    map[0][0] = 'S';
 
-    rows = numRows;
-    cols = numCols;
-    row = 0;
-    column = 0;
-    maxEnergy = 4 * numRows * numCols;
-    energy = maxEnergy;
-    collectedRelics = 0;
-    requiredRelics = 3;
-    moves = 0;
-    status = "ACTIVE";
-    return true;
-}
+        map = new char[numRows][numCols];
+        for (int r = 0; r < numRows; r++) {
+            for (int c = 0; c < numCols; c++) {
+                map[r][c] = '.';
+            }
+        }
+        map[0][0] = 'S';
+
+        rows = numRows;
+        cols = numCols;
+        row = 0;
+        column = 0;
+        maxEnergy = 4 * numRows * numCols;
+        energy = maxEnergy;
+        collectedRelics = 0;
+        requiredRelics = 3;
+        moves = 0;
+        status = "ACTIVE";
+        return true;
+    }
 
     public char[][] getMap() {
         char[][] copy = new char[rows][cols];
@@ -97,6 +95,7 @@ public boolean startNewGame(int numRows, int numCols) {
     }
 
     public int getScore() {
+
         return 100 * collectedRelics + 5 * energy;
     }
 
